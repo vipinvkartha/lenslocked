@@ -19,7 +19,6 @@ type PostgresConfig struct {
 func (cfg PostgresConfig) String() string {
 	return fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.Database, cfg.SSLMode)
 }
-
 func main() {
 	cfg := PostgresConfig{
 		Host:     "localhost",
@@ -31,10 +30,13 @@ func main() {
 	}
 	db, err := sql.Open("pgx", cfg.String())
 	if err != nil {
+		fmt.Println("Vipinssssss error")
 		panic(err)
 	}
+	fmt.Println(cfg.String())
 	err = db.Ping()
 	if err != nil {
+		fmt.Println("Vipins error")
 		panic(err)
 	}
 	fmt.Println("Connected to the database")
